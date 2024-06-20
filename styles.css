@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Mono';
+    font-weight: 700;
+    background: var(--light-grayish-cyan);
+    margin: 0;
+    color: var(--very-dark-cyan);
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    padding-block: 4rem;
+    /* font-size: 24px; */
+
+}
+
+.container {
+    background: var(--white);
+    border-radius: 1rem 1rem 0 0;
+    padding: 2rem;
+    width: 100%;
+}
+
+input {
+    color: var(--very-dark-cyan);
+}
+
+input:not([id="custom-tip-btn"]) {
+    display: block;
+    width: 100%;
+    text-align: right;
+    background: var(--icon) 5% 50% no-repeat, var(--very-light-grayish-cyan);
+    border: none;
+    font-family: 'Space Mono';
+    font-size: 24px;
+    border-radius: .2rem;
+    margin-block: .5rem;
+}
+
+#num-of-people {
+    --icon: url(./images/icon-person.svg)
+}
+
+#bill {
+    --icon: url(./images/icon-dollar.svg)
+}
+
+input:not([id="custom-tip-btn"])::placeholder{
+    color: var(--light-grayish-cyan);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--strong-cyan);
+} 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: .5rem;
+}
+
+/* input[type=number] {
+  -moz-appearance: textfield;
+} */
+
+.tip-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 24px;
+    margin-bottom: 1rem;
+}
+
+.tip-btns div {
+    background: var(--very-dark-cyan);
+    color: var(--very-light-grayish-cyan);
+    text-align: center;
+    width: calc(50% - 1rem);
+    border-radius: .2rem;
+}
+
+#custom-tip-btn {
+    display: inline-block;
+    width: calc(50% - 1rem);
+    background: var(--grayish-cyan);
+    border: none;
+    font-size: 24px;
+    text-align: center;
+    color: var(--very-dark-cyan);   
+    border-radius: .2rem;
+    font-family: 'Space Mono';
+
+}
+
+#custom-tip-btn::placeholder {
+    color: var(--very-dark-cyan);
+    font-family: 'Space Mono';
+}
+
+.result-display {
+    background: var(--very-dark-cyan);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    color: var(--very-light-grayish-cyan);
+
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text p {
+ margin: 0;
+}
+
+.text p:nth-child(2) {
+    font-size: 14px;
+    color: var(--light-grayish-cyan);
+   }
+   
+.price {
+    font-size: 24px;
+}
+
+#reset-btn {
+    width: 100%;
+    border-radius: .2rem;
+    border: none;
+    font-size: 24px;
+    font-family: 'Space Mono';
+    background: var(--strong-cyan);
+}
+
+@media screen and (min-width: 1000px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 1rem;
+        width: clamp(30rem, 80%, 80rem)
+    }
+    
+    .form-wrapper, .result-display {
+        flex: 1;
+    }
+
+    .tip-btns div, #custom-tip-btn {
+        width: calc((100% / 3) - 1rem)
+    }   
+}
