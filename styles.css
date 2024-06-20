@@ -123,7 +123,9 @@ input::-webkit-inner-spin-button {
     border-radius: 1rem;
     padding: 1rem 2rem;
     color: var(--very-light-grayish-cyan);
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .group {
@@ -152,6 +154,15 @@ input::-webkit-inner-spin-button {
     font-size: 24px;
     font-family: 'Space Mono';
     background: var(--strong-cyan);
+    text-transform: uppercase;
+    color: var(--very-dark-cyan);
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+    .container {
+        width: clamp(30rem, 80%, 50rem);
+        border-radius: 1rem;
+    }
 }
 
 @media screen and (min-width: 1000px) {
@@ -159,7 +170,7 @@ input::-webkit-inner-spin-button {
         display: flex;
         justify-content: space-between;
         border-radius: 1rem;
-        width: clamp(30rem, 80%, 80rem)
+        width: clamp(30rem, 80%, 60rem)
     }
     
     .form-wrapper, .result-display {
