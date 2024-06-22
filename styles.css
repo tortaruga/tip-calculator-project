@@ -89,9 +89,6 @@ input::-webkit-inner-spin-button {
   margin: .5rem;
 }
 
-/* input[type=number] {
-  -moz-appearance: textfield;
-} */
 
 .tip-select {
     color: var(--dark-grayish-cyan);
@@ -182,9 +179,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #FF3F3F; */
     max-height: 5rem;
-
 }
 
 .text p {
