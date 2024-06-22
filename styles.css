@@ -168,6 +168,7 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     justify-content: space-between;
     min-height: 20rem;
+    margin-top: 2rem;
 }
 
 .group-wrapper {
@@ -210,8 +211,11 @@ input::-webkit-inner-spin-button {
     text-transform: uppercase;
     color: var(--very-dark-cyan);
     font-weight: 700;
-    opacity: .4;
-    filter: brightness(.7);
+}
+
+#reset-btn:hover {
+    background: var(--light-grayish-cyan);
+
 }
 
 .empty {
@@ -219,7 +223,7 @@ input::-webkit-inner-spin-button {
     filter: brightness(.7);
 }
 
-input, button, .tip-btns div {
+input, button {
  cursor: pointer;
 }
 
@@ -235,6 +239,7 @@ footer {
     .container {
         width: clamp(30rem, 80%, 50rem);
         border-radius: 1rem;
+        box-shadow: 0rem .5rem 10px hsl(184, 14%, 56%, .3);
     }
 }
 
@@ -244,14 +249,16 @@ footer {
         justify-content: space-between;
         border-radius: 1rem;
         width: clamp(30rem, 80%, 50rem);
-        gap: 1rem
+        gap: 1rem;
+        box-shadow: 0rem .5rem 10px hsl(184, 14%, 56%, .2);
     }
     
     .form-wrapper, .result-display {
         flex: 1;
+        margin-top: 0;
     }
 
-    .tip-btns div, #custom-tip-btn {
+    .tip-btns label, #custom-tip-btn {
         width: calc((100% / 3) - 1rem)
     }   
 }
