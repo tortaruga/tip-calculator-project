@@ -1,24 +1,23 @@
  const bill = document.getElementById('bill');
  const numOfPeople = document.getElementById('num-of-people');
-
  const customTip = document.getElementById('custom-tip-btn');
  const errorMsg = document.getElementById('error-msg');
  const tipPerPerson = document.getElementById('tip-per-person');
  const totalPerPerson = document.getElementById('total-per-person');
-const resetBtn = document.getElementById('reset-btn');
-
- let billValue = undefined;
- let numOfPeopleValue = undefined;
- let customTipValue = undefined;
- let tipId = undefined;
- let tip;
+ const resetBtn = document.getElementById('reset-btn');
  const tipBtns = document.querySelectorAll('input[type="radio"]');
  
-
+ let billValue;
+ let numOfPeopleValue;
+ let customTipValue;
+ let tipId;
+ let tip;
+ let noTipTotalPerPerson;
+ let individualTip;
+ let total;
 
  bill.addEventListener('input', () => {
     billValue = Number(bill.value);
-    // console.log(billValue)
     calculateTip();
     enableResetBtn();
  })
@@ -41,7 +40,7 @@ if (numOfPeople.value === '0') {
  customTip.addEventListener('input', () => {
      customTipValue = Number(customTip.value);
      enableResetBtn();
-    calculateTip();
+     calculateTip();
 
  })
 
@@ -62,20 +61,18 @@ tipBtns.forEach(btn => {
 
 
  function calculateTip() {
-if (customTipValue) {
-   tip = customTipValue;
-} else {
-   tip = tipId;
-}
+    if (customTipValue) {
+        tip = customTipValue;
+      } else {
+        tip = tipId;
+      }
 
-console.log(typeof total)
-let noTipTotalPerPerson = billValue / numOfPeopleValue;
-let individualTip = noTipTotalPerPerson * (tip / 100);
+   noTipTotalPerPerson = billValue / numOfPeopleValue;
+   individualTip = noTipTotalPerPerson * (tip / 100);
 
-tipPerPerson.innerHTML = (individualTip) ? Math.floor(individualTip * 100) / 100 : '$0.00';
-total = noTipTotalPerPerson + individualTip;
-totalPerPerson.innerHTML = total ? Math.round(total * 100) / 100 : '$0.00';
-
+   tipPerPerson.innerHTML = (individualTip) ? Math.floor(individualTip * 100) / 100 : '$0.00';
+   total = noTipTotalPerPerson + individualTip;
+   totalPerPerson.innerHTML = total ? Math.round(total * 100) / 100 : '$0.00';
 }
 
 
@@ -88,14 +85,27 @@ function enableResetBtn() {
 }
  
 
+function clearInput(inputs) {
+   inputs.forEach(input => input.value = '')
+}
+
 resetBtn.addEventListener('click', () => {
  disableResetBtn();
  tipPerPerson.innerHTML = '$0.00';
  totalPerPerson.innerHTML = '$0.00';
- bill.value = '';
- numOfPeople.value = '';
- customTip.value = '';
+ clearInput([bill, numOfPeople, customTip]);
+ 
+ billValue = undefined;
+ numOfPeopleValue = undefined;
+ customTipValue = undefined;
+ tipId = undefined;
+ tip = undefined;
+ noTipTotalPerPerson = undefined;
+ individualTip = undefined;
+ total = undefined;
+
  tipBtns.forEach(btn => {
    btn.checked = false;
  })
 })
+
