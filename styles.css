@@ -218,6 +218,11 @@ input::-webkit-inner-spin-button {
     filter: brightness(.7);
 }
 
+#reset-btn.empty:hover {
+    /* cursor: not-allowed; */
+    background: var(--strong-cyan);
+}
+
 input, button {
  cursor: pointer;
 }
